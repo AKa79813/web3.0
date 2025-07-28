@@ -8,19 +8,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class New_Login {
+public class Myaccount {
+
     WebDriver driver;
 
     @Test
     void setup() throws InterruptedException {
         // Setup WebDriverManager to automatically download and configure ChromeDriver
-        WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\ven06482\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe"); // <--- MODIFY THIS LINE
 
         // Create ChromeOptions object FIRST
         ChromeOptions options = new ChromeOptions();
@@ -80,8 +82,22 @@ public class New_Login {
 
         System.out.println(" user logged in successfully");
 
+
+
+
+        Thread.sleep(2000);
+
+        WebElement myAccountIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(" //flt-semantics[@role='button' and @tabindex='0' and @aria-expanded='false' and @flt-tappable]")));
+
+        myAccountIcon.click();
+
+
+        WebElement profileDetails = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='menuitem'][@tabindex='0'][@aria-disabled='true'][contains(@aria-label, 'Profile Details')]")));
+    profileDetails.click();
+
+
         //Keep this commented for now, but good practice to have for cleanup
-         //driver.quit();
-        //System.out.println("Browser closed.");
+        //driver.quit();
+       // System.out.println("Browser closed.");
     }
 }

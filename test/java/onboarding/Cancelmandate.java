@@ -14,11 +14,12 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class New_Login {
+public class Cancelmandate {
+
     WebDriver driver;
 
     @Test
-    void setup() throws InterruptedException {
+    void setup() throws Exception {
         // Setup WebDriverManager to automatically download and configure ChromeDriver
         WebDriverManager.chromedriver().setup();
 
@@ -55,18 +56,13 @@ public class New_Login {
 
         System.out.println("Chrome browser launched with notification handling preferences.");
 
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
 
         // Using WebDriverWait for better synchronization
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Initialize here
 
         WebElement phoneNumberField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
         phoneNumberField.click();
-        phoneNumberField.sendKeys("9888484848");
+        phoneNumberField.sendKeys("8277159501");
         Thread.sleep(2000);
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -80,8 +76,28 @@ public class New_Login {
 
         System.out.println(" user logged in successfully");
 
+        WebElement Myloans = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()=\"My Loans\"]")));
+        Myloans.click();
+
+
+driver.findElement(By.xpath("//flt-semantics[@role=\"tab\" and @aria-label=\"Closed\" and @aria-selected=\"false\"]")).click();
+
+driver.findElement(By.xpath("//flt-semantics[@role=\"button\"][text()=\"View Details\"]")).click();;
+driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and contains(text(), \"BANK & MANDATE\")]")).click();
+
+driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Cancel Mandate\"]")).click();;
+driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Yes\"]")).click();;
+driver.findElement(By.xpath("//flt-semantics[@role=\"radio\" and @aria-checked=\"false\"]")).click();
+
+driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Continue\"]")).click();
+
+driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Yes\"]")).click();
+
+
+
         //Keep this commented for now, but good practice to have for cleanup
-         //driver.quit();
-        //System.out.println("Browser closed.");
+ ///driver.quit();
+      // System.out.println("Browser closed.");
     }
 }
+

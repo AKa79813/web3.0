@@ -11,12 +11,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.io.File; // Import for File operations
+import java.io.IOException; // Import for IOException handling
+import org.openqa.selenium.OutputType; // Import for screenshot output type
+import org.openqa.selenium.TakesScreenshot; // Import for TakesScreenshot interface
+import org.apache.commons.io.FileUtils; // Import for FileUtils to copy files
+
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Prefooter {
-
+public class preloginfooter2 {
 
     WebDriver driver;
     WebDriverWait wait; // Declare WebDriverWait at class level for reusability
@@ -50,165 +55,169 @@ public class Prefooter {
         // Initialize WebDriverWait with a maximum timeout of 40 seconds
         wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 
-        // Navigate to the initial URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
-        System.out.println("Chrome browser launched with notification handling preferences.");
-
         try {
+            // Navigate to the initial URL
+            driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+            System.out.println("Chrome browser launched with notification handling preferences.");
+
+
             // Example usage of the new scrollAndClickElement method:
-            // First, click on "flt-semantic-node-4" as per your original logic
-            scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-23\"]"), "flt-semantic-node--23");
-            System.out.println("Current URL after first click: " + driver.getCurrentUrl());
+            // First, click on "flt-semantic-node-23" as per your original logic
+            scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-23\"]"), "flt-semantic-node-23");
+            Thread.sleep(4000);
 
-            // Navigate back to the previous page
-//       driver.navigate().back();
-            System.out.println("Navigated to the home loan page.");
 
-            Thread.sleep(2000);
+
+
+            WebElement homeloan = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.breadcrumb__item-link")));
+
+            Thread.sleep(4000);
+            takeScreenshot(driver, "home loan navigation"); // Screenshot after click
+//
+//            Thread.sleep(2000);
+
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-24\"]"), "flt-semantic-node--24");
 
+            scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-24\"]"), "flt-semantic-node-24");
             System.out.println("Navigated personal loan page.");
-
+            Thread.sleep(4000);
+            takeScreenshot(driver, "personal_loan_page.png"); // Screenshot after navigation and click
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+            //takeScreenshot(driver, "homepage_before_node_25_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-25\"]"), "flt-semantic-node-25");
-
+            Thread.sleep(4000);
             System.out.println("Navigated Two wheeler loan page.");
+            takeScreenshot(driver, "two_wheeler_loan_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_26_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-26\"]"), "flt-semantic-node-26");
-
             System.out.println("Navigated Business loan page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "business_loan_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+           // takeScreenshot(driver, "homepage_before_node_27_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-27\"]"), "flt-semantic-node-27");
-
             System.out.println("Navigated LAP loan page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "lap_loan_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+           // takeScreenshot(driver, "homepage_before_node_28_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-28\"]"), "flt-semantic-node-28");
-
             System.out.println("Navigated Rural loan page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "rural_loan_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+           // takeScreenshot(driver, "homepage_before_node_29_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-29\"]"), "flt-semantic-node-29");
-
             System.out.println("Navigated Tractor loan page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "tractor_loan_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+           // takeScreenshot(driver, "homepage_before_node_30_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-30\"]"), "flt-semantic-node-30");
-
             System.out.println("Navigated WRF loan page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "wrf_loan_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_33_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-33\"]"), "flt-semantic-node-33");
-
-            System.out.println("Navigated locate us  page.");
+            System.out.println("Navigated locate us page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "locate_us_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_34_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-34\"]"), "flt-semantic-node-34");
-
-            System.out.println("Navigated contact us  page.");
+            System.out.println("Navigated contact us page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "contact_us_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_35_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-35\"]"), "flt-semantic-node-35");
-
-            System.out.println("Navigated About  us page.");
+            System.out.println("Navigated About us page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "about_us_page.png");
 
             Thread.sleep(2000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_46_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-46\"]"), "flt-semantic-node-46");
-
-            System.out.println("Navigated L&T  page.");
+            System.out.println("Navigated L&T page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "l_and_t_page.png");
 
             Thread.sleep(1000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_48_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-48\"]"), "flt-semantic-node-48");
-
-            System.out.println("Navigated L&T businness  page.");
-
+            System.out.println("Navigated L&T business page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "l_and_t_business_page.png");
 
             Thread.sleep(1000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+         //   takeScreenshot(driver, "homepage_before_node_49_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-49\"]"), "flt-semantic-node-49");
-
-            System.out.println("Navigated consultant  page.");
-
+            System.out.println("Navigated consultant page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "consultant_page.png");
 
             Thread.sleep(1000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_50_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-50\"]"), "flt-semantic-node-50");
-
             System.out.println("Navigated merged page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "merged_page.png");
 
             Thread.sleep(1000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+          //  takeScreenshot(driver, "homepage_before_node_55_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-55\"]"), "flt-semantic-node-55");
-
             System.out.println("Navigated Disclaimer page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "disclaimer_page.png");
 
             Thread.sleep(1000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+            //takeScreenshot(driver, "homepage_before_node_57_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-57\"]"), "flt-semantic-node-57");
-
             System.out.println("Navigated privacy policy page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "privacy_policy_page.png");
 
             Thread.sleep(1000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+            //takeScreenshot(driver, "homepage_before_node_59_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-59\"]"), "flt-semantic-node-59");
-
             System.out.println("Navigated cutomer advisory page.");
+            Thread.sleep(4000);
+            takeScreenshot(driver, "customer_advisory_page.png");
 
             Thread.sleep(1000);
             driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
-            // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
-            // This will ensure it's scrolled into view and then clicked after navigating back
+            //takeScreenshot(driver, "homepage_before_node_61_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-61\"]"), "flt-semantic-node-61");
-
             System.out.println("Navigated Greivance redressel page.");
-
+            Thread.sleep(4000);
+            takeScreenshot(driver, "grievance_redressal_page.png");
 
 
         } catch (Exception e) {
@@ -250,8 +259,40 @@ public class Prefooter {
             throw e; // Re-throw the exception to indicate failure in the test
         }
     }
+
+    /**
+     * Takes a screenshot of the current browser window and saves it to a specified file.
+     * Screenshots are saved in a 'screenshots' folder within the project directory.
+     * If the 'screenshots' directory does not exist, it will be created.
+     *
+     * @param driver The WebDriver instance.
+     * @param fileName The name of the file to save the screenshot as (e.g., "my_page_screenshot.png").
+     */
+    private void takeScreenshot(WebDriver driver, String fileName) {
+        try {
+            // Ensure the driver supports taking screenshots
+            if (driver instanceof TakesScreenshot) {
+                // Cast the driver to TakesScreenshot and get the screenshot as a File
+                File screenshotFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+                // Define the directory where screenshots will be saved
+                File screenshotDir = new File("./screenshots");
+                if (!screenshotDir.exists()) {
+                    screenshotDir.mkdirs(); // Create the directory if it doesn't exist
+                }
+
+                // Define the destination file path
+                File destinationFile = new File(screenshotDir, fileName);
+
+                // Copy the screenshot file to the destination
+                FileUtils.copyFile(screenshotFile, destinationFile);
+                System.out.println("Screenshot saved to: " + destinationFile.getAbsolutePath());
+            } else {
+                System.err.println("WebDriver does not support taking screenshots.");
+            }
+        } catch (IOException e) {
+            System.err.println("Failed to take or save screenshot '" + fileName + "': " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
-
-
-
-
