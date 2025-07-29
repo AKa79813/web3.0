@@ -1,4 +1,4 @@
-package onboarding;
+package payments;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
@@ -29,7 +29,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.testng.Assert; // Import TestNG Assertions
 
-public class Dummy {
+public class QuickPay {
 
     WebDriver driver;
 
@@ -207,61 +207,13 @@ public class Dummy {
                 // 1. Validate PayU Page Title/URL (often a good first check)
                 String payuPageTitle = driver.getTitle();
                 System.out.println("PayU Page Title: " + payuPageTitle);
-                //Assert.assertTrue(payuPageTitle.contains("Payment Gateway") || payuPageTitle.contains("PayU"), "PayU page title validation failed.");
-              //  System.out.println("Validation: PayU page title contains 'Payment Gateway' or 'PayU'.");
 
-               // String payuPageUrl = driver.getCurrentUrl();
-               // System.out.println("PayU Page URL: " + payuPageUrl);
-               // Assert.assertTrue(payuPageUrl.contains("payu.in"), "PayU page URL validation failed.");
-              //  System.out.println("Validation: PayU page URL contains 'payu.in'.");
-
-
-                // 2. Validate "Payable Now" amount
-                // Based on screenshot, it's <p class="l1Item__content__amount">₹4,445</p>
-//                WebElement payableAmount = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='l1Item__content']/p[contains(@class, 'l1Item__content__amount')]")));
-//                String amountText = payableAmount.getText().trim();
-//                System.out.println("Payable Amount displayed: " + amountText);
-//                Assert.assertTrue(amountText.contains("₹") && amountText.contains("4,445"), "Payable amount validation failed.");
-//                System.out.println("Validation: Payable amount '₹4,445' is displayed.");
-
-                // 3. Validate "ALL PAYMENT OPTIONS" heading
-//                WebElement allPaymentOptionsHeading = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='ALL PAYMENT OPTIONS']")));
-//                Assert.assertTrue(allPaymentOptionsHeading.isDisplayed(), "ALL PAYMENT OPTIONS heading is not displayed.");
-//                System.out.println("Validation: 'ALL PAYMENT OPTIONS' heading is displayed.");
-
-                // 4. Validate presence of key payment options (e.g., Cards, Net Banking, UPI, Wallet)
                 Thread.sleep(2000);
                 WebElement cardsOption = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='l1Item__content']/p[text()='Cards (Credit/Debit)']")));
                 Assert.assertTrue(cardsOption.isDisplayed(), "Cards (Credit/Debit) option not displayed.");
                 System.out.println("Validation: 'Cards (Credit/Debit)' option is displayed.");
 
-//                WebElement netBankingOption = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='l1Item__content']/p[text()='Net Banking']")));
-//                Assert.assertTrue(netBankingOption.isDisplayed(), "Net Banking option not displayed.");
-//                System.out.println("Validation: 'Net Banking' option is displayed.");
-
-//                WebElement upiOption = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='l1Item__content']/p[text()='UPI']")));
-//                Assert.assertTrue(upiOption.isDisplayed(), "UPI option not displayed.");
-//                System.out.println("Validation: 'UPI' option is displayed.");
-
-//                WebElement walletOption = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='l1Item__content']/p[text()='Wallet']")));
-//                Assert.assertTrue(walletOption.isDisplayed(), "Wallet option not displayed.");
-//                System.out.println("Validation: 'Wallet' option is displayed.");
-
-                // 5. Validate the "Secure Checkout" text/image
-//                WebElement secureCheckout = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[text()='Secure Checkout']")));
-//                Assert.assertTrue(secureCheckout.isDisplayed(), "Secure Checkout text not displayed.");
-//                System.out.println("Validation: 'Secure Checkout' text is displayed.");
-
-                // 6. Validate the presence of the PayU logo/icon (if it's an image, check src or alt text)
-                // This XPath assumes the logo is within a div or p and has specific attributes.
-                // You might need to adjust this if it's an img tag.
-//                WebElement payuLogo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(@class, 'payu_logo') or contains(@class, 'l1Item__secureText') or @alt='PayU']")));
-//                Assert.assertTrue(payuLogo.isDisplayed(), "PayU logo/branding not displayed.");
-//                System.out.println("Validation: PayU logo/branding is displayed.");
 //
-//
-//                System.out.println("\n--- All PayU Page Validations Passed ---");
-
 
                 driver.findElement(By.xpath("//div[@class='l1Item__content']/p[text()='Cards (Credit/Debit)']")).click();;
 
@@ -275,8 +227,10 @@ public class Dummy {
                 cardexpiry.sendKeys("1225");
                 driver.findElement(By.xpath("//input[@id='cardCvv']")).sendKeys("123");
                 driver.findElement(By.xpath("//input[@name='cardOwnerName']")).sendKeys("Arun kumar");
+                Thread.sleep(1000);
 
                 driver.findElement(By.xpath(" //span[contains(text(), 'PROCEED')]")).click();
+                Thread.sleep(1000);
                 driver.findElement(By.xpath(" //button[text()='Save and Continue']")).click();;
 
 
@@ -289,10 +243,7 @@ public class Dummy {
                 options.addArguments("--disable-notifications");
 
                 driver.findElement(By.xpath("//input[@id='submitBtn']")).click();
-                // You can add more specific validations as needed, e.g.,
-                // - Check if an element is enabled/disabled
-                // - Get text from a specific field
-                // - Check for specific images or icons
+
 
             } catch (Exception e) {
                 System.err.println("Error during PayU page validation: " + e.getMessage());
@@ -300,10 +251,7 @@ public class Dummy {
                 Assert.fail("PayU page validation failed: " + e.getMessage()); // Fail the test explicitly
             }
 
-            // After validations, you would proceed with payment actions on the PayU page if required.
-            // For this scenario, we just validate and then return.
 
-            // Adding a small pause to visually observe (remove in real automation)
             Thread.sleep(3000);
 
             // Close the current PayU tab
@@ -319,8 +267,8 @@ public class Dummy {
 
             scrollAndClickElement(By.xpath("//flt-semantics[@role='button' and text()='Go to Login']"), "Go to Login Button");
 
-
-            System.out.println("Quick pay payment success ");
+            System.out.println("Test completed and browser closed.");
+            System.out.println("--------------Quick pay payment success-------------");
 
 
 
@@ -330,9 +278,6 @@ public class Dummy {
         }
 
 
-        // Add assertions here to verify successful OTP validation
-        // e.g., check for a success message, new page title, or redirection
-        //System.out.println("OTP entered and Verify button clicked. Now verifying the outcome...");
 
         try {
             // Example: Wait for a success message or new page element after OTP validation
@@ -348,8 +293,8 @@ public class Dummy {
         // Keep the browser open for a few seconds for visual inspection if needed
         Thread.sleep(3000);
 
-       // driver.quit();
-       // System.out.println("Test completed and browser closed.");
+        driver.quit();
+
     }
 
     private void scrollAndClickElement(By xpath, String s) {

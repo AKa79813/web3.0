@@ -1,7 +1,8 @@
-package onboarding;
+package payments;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,10 +15,9 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 
-public class preloginpayemi {
+public class HLpayment {
 
     WebDriver driver;
-
 
     @Test
     void setup() throws InterruptedException {
@@ -67,19 +67,50 @@ public class preloginpayemi {
             Thread.currentThread().interrupt(); // Re-interrupt the thread
             throw new RuntimeException("Thread interrupted during sleep", e);
         }
-        WebElement quickpay = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[contains(text(), \"Quick Pay\")]")));
-        quickpay.click();
-     driver.findElement(By.xpath("//input[@type='text']")).click();
-      driver.findElement(By.xpath("//input[@type='text']")).sendKeys("CLLOAN220105");
-      WebElement no = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
-     no.click();
+
+        // Wait for the input field to be clickable before interacting
+        WebElement telInputField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
+        telInputField.click();
+        telInputField.sendKeys("9888484848");
+
+        // Use explicit wait for the continue button
+        WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
+        continueButton.click();
+
+        // Use explicit wait for the password/OTP field
+        WebElement otpField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[type=\"password\"]")));
+        otpField.click();
+        otpField.sendKeys("1111");
+
+        System.out.println("User logged in successfully");
+
+        WebElement payemi = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button'][@tabindex='0'][text()='Pay EMI']")));
+
+        // 1. Scroll the element into view using JavascriptExecutor
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", payemi);
+        System.out.println("Scrolled 'Pay EMI' element into view.");
+
+        // 2. Re-confirm it's clickable (optional, but good for robustness after scrolling)
+        wait.until(ExpectedConditions.elementToBeClickable(payemi));
+
+        // 3. Click the element
+        payemi.click();
+        System.out.println("'Pay EMI' button clicked.");
+
+        driver.findElement(By.xpath("//input[@type='text'][@spellcheck='false'][@autocorrect='off'][@autocomplete='off']")).click();
+
+        driver.findElement(By.xpath("//input[@type='text'][@spellcheck='false'][@autocorrect='off'][@autocomplete='off']")).sendKeys("500");
+        driver.findElement(By.xpath("//input[@type='text'][@spellcheck='false'][@autocorrect='off'][@autocomplete='off']")).click();
 
 
-        driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]")).sendKeys("6362285653");
-        driver.findElement(By.xpath("//flt-semantics[text()=\"Proceed\"]")).click();
+    }
 
-
-
-        
-        //flt-semantics[@role='button'][@tabindex='0']
-}}
+//            @AfterMethod
+//            void tearDown() {
+//                if (driver != null) {
+//                    driver.quit();
+//                    System.out.println("Browser closed.");
+//                }
+//            }
+}
