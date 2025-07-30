@@ -79,10 +79,6 @@ public class Myaccount {
         driver.findElement(By.xpath("//input[@name='one-time-code']")).sendKeys("1111");
 
         System.out.println(" user logged in successfully");
-
-
-
-
         Thread.sleep(2000);
 
         WebElement myAccountIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(" //flt-semantics[@role='button' and @tabindex='0' and @aria-expanded='false' and @flt-tappable]")));
