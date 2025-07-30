@@ -34,13 +34,13 @@ public class NewUser {
 
     WebDriver driver;
     // The phone number used for login. Make sure this is a valid test number.
-    private final String TEST_PHONE_NUMBER = "7473837288";
+    private final String TEST_PHONE_NUMBER = "6362285653";
 
     // --- Remote Server Details (UPDATE THESE FOR YOUR ENVIRONMENT!) ---
     private static final String REMOTE_HOST = "172.30.90.131";
     private static final int REMOTE_PORT = 22;
     private static final String REMOTE_USERNAME = "ltfadmin.d2c";
-    private static final String REMOTE_PASSWORD = "Ltfs#D2C@2025##";
+    private static final String REMOTE_PASSWORD = "Ltfs@AUG2025D2C##";
     // Path to the log file ON THE REMOTE SERVER
     private static final String REMOTE_LOG_PATH = "/home/ltfadmin.d2c/Logs/planet-user/log4j.log";
     // Local path where the log file will be temporarily saved on the machine running this test
