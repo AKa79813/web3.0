@@ -1,4 +1,4 @@
-package onboarding;
+package Services;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -58,11 +58,11 @@ public class Cancelmandate {
 
 
         // Using WebDriverWait for better synchronization
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Initialize here
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40)); // Initialize here
 
         WebElement phoneNumberField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
         phoneNumberField.click();
-        phoneNumberField.sendKeys("8277159501");
+        phoneNumberField.sendKeys("9888484848");
         Thread.sleep(2000);
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -80,18 +80,31 @@ public class Cancelmandate {
         Myloans.click();
 
 
-driver.findElement(By.xpath("//flt-semantics[@role=\"tab\" and @aria-label=\"Closed\" and @aria-selected=\"false\"]")).click();
+WebElement closedloans = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role=\"tab\" and @aria-label=\"Closed\" and @aria-selected=\"false\"]")));
+closedloans.click();
 
-driver.findElement(By.xpath("//flt-semantics[@role=\"button\"][text()=\"View Details\"]")).click();;
-driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and contains(text(), \"BANK & MANDATE\")]")).click();
+WebElement viewdetails = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role=\"button\"][text()=\"View Details\"]")));
+viewdetails.click();
 
-driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Cancel Mandate\"]")).click();;
+
+WebElement Bank = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role=\"button\" and contains(text(), \"BANK & MANDATE\")]")));
+Bank.click();
+
+WebElement Cancel = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Cancel Mandate\"]")));
+Cancel.click();
+
+
 driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Yes\"]")).click();;
 driver.findElement(By.xpath("//flt-semantics[@role=\"radio\" and @aria-checked=\"false\"]")).click();
 
 driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Continue\"]")).click();
 
 driver.findElement(By.xpath("//flt-semantics[@role=\"button\" and text()=\"Yes\"]")).click();
+
+Thread.sleep(7000);
+
+WebElement home = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()='Go to home']")));
+home.click();
 
 
 

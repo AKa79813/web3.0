@@ -221,9 +221,9 @@ public class Payemi {
         }
 
         // Keep the browser open for a few seconds for visual inspection if needed
-        Thread.sleep(3000);
+       // Thread.sleep(3000);
 
-        driver.quit();
+       // driver.quit();
 
     }
 

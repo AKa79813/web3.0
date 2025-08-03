@@ -65,6 +65,7 @@ public class NewUser {
         options.addArguments("--disable-infobars"); // Disables info bars
         options.addArguments("--disable-extensions"); // Disables browser extensions
         options.addArguments("--start-maximized"); // Maximize window on start
+        options.addArguments("--force-device-scale-factor=0.9");
 
         // Initialize the ChromeDriver with all the configured options
         driver = new ChromeDriver(options);

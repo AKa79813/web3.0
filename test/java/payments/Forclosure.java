@@ -177,7 +177,7 @@ public class Forclosure {
             Thread.sleep(3000);
 
             // Close the current PayU tab
-            driver.close();
+            //driver.close();
             System.out.println("Closed PayU tab.");
 
             // Return to the original tab

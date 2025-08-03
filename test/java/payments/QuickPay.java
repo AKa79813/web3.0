@@ -75,7 +75,7 @@ public class QuickPay {
 
         // Now that the driver is initialized, set implicit wait and WebDriverWait
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 
         // Navigate to URL
         driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
@@ -101,12 +101,12 @@ public class QuickPay {
         // Enter the Loan Number
         WebElement loanNumberInput = driver.findElement(By.xpath("//input[@type='text']"));
         loanNumberInput.click();
-        loanNumberInput.sendKeys("TWLOAN7113316");
+        loanNumberInput.sendKeys("BLHYBRID8713");
 
         // Enter the Mobile Number
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
         mobileNumberInput.click();
-        mobileNumberInput.sendKeys("6362285653");
+        mobileNumberInput.sendKeys("9346522648");
 
         // Click the "Proceed" button
         WebElement proceedButton = driver.findElement(By.xpath("//flt-semantics[text()=\"Proceed\"]"));
@@ -265,10 +265,10 @@ public class QuickPay {
             takeScreenshot(driver, "Quickpaysuccesspage.png");
             WebElement login = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[@role='button' and text()='Go to Login']")));
 
-            scrollAndClickElement(By.xpath("//flt-semantics[@role='button' and text()='Go to Login']"), "Go to Login Button");
+           // scrollAndClickElement(By.xpath("//flt-semantics[@role='button' and text()='Go to Login']"), "Go to Login Button");
 
-            System.out.println("Test completed and browser closed.");
-            System.out.println("--------------Quick pay payment success-------------");
+           // System.out.println("Test completed and browser closed.");
+           // System.out.println("--------------Quick pay payment success-------------");
 
 
 
@@ -293,7 +293,7 @@ public class QuickPay {
         // Keep the browser open for a few seconds for visual inspection if needed
         Thread.sleep(3000);
 
-        driver.quit();
+      //  driver.quit();
 
     }
 

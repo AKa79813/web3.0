@@ -41,6 +41,7 @@ public class Login {
 
         // --- This is the key for maximizing ---
         options.addArguments("--start-maximized"); // Add this argument to options
+        options.addArguments("--force-device-scale-factor=0.9");
 
         // Initialize the ChromeDriver, PASSING THE CONFIGURED OPTIONS HERE
         driver = new ChromeDriver(options); // <--- Corrected line: pass 'options' here

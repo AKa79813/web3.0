@@ -121,6 +121,13 @@ public class EmailUpdate {
         // Note: The previous XPath "//flt-semantics[@role='button']" is very generic.
         // If there are multiple buttons, this might click the wrong one.
         // It's better to use a more specific locator if possible (e.g., based on position, parent, or a unique attribute).
+WebElement hl = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='radio' and @aria-checked='false']")));
+hl.click();
+
+        WebElement pop= wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()='Continue']")));
+        pop.click();
+
+
 
         Thread.sleep(2000);
         WebElement pencil = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role=\"button\"]")));

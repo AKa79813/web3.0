@@ -34,7 +34,7 @@ public class SFDC {
 
 
         WebElement searcbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='button' and contains(@class, 'search-button')]")));
-searcbox.sendKeys("17184977");
+         searcbox.sendKeys("17184977");
 
     }
 }
