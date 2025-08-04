@@ -49,6 +49,7 @@ public class Partpayment {
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-extensions");
+        options.addArguments("--force-device-scale-factor=0.9");
 
         // Initialize the ChromeDriver, passing the fully configured ChromeOptions
         driver = new ChromeDriver(options);

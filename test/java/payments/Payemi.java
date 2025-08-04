@@ -47,6 +47,7 @@ public class Payemi {
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-extensions");
+        options.addArguments("--force-device-scale-factor=0.9");
 
         // Initialize the ChromeDriver, passing the fully configured ChromeOptions
         driver = new ChromeDriver(options);
@@ -171,6 +172,7 @@ public class Payemi {
                 WebElement code = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='password']")));
                 code.sendKeys("123456");
                 options.addArguments("--disable-notifications");
+
 
                 driver.findElement(By.xpath("//input[@id='submitBtn']")).click();
 
