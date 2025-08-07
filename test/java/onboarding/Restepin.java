@@ -71,7 +71,7 @@ public class Restepin {
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-extensions");
-        options.addArguments("--force-device-scale-factor=0.9");
+      //  options.addArguments("--force-device-scale-factor=0.9");
 
         // Initialize the ChromeDriver, passing the fully configured ChromeOptions
         driver = new ChromeDriver(options);
@@ -88,7 +88,7 @@ public class Restepin {
         // Wait for a significant element on the page to indicate it's loaded
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
         mobileNumberInput.click();
-        mobileNumberInput.sendKeys("8056420372");
+        mobileNumberInput.sendKeys("8668076641");
 
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -159,11 +159,11 @@ public class Restepin {
 
         WebElement mpin1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='password' and @data-semantics-role='text-field']")));
         mpin1.click();;
-        mpin1.sendKeys("1234");
+        mpin1.sendKeys("9999");
 
         WebElement mpin2 =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@autocomplete='off' and @data-semantics-role='text-field']")));
         mpin2.click();
-        mpin2.sendKeys("1234");
+        mpin2.sendKeys("9999");
 
         driver.findElement(By.xpath("//flt-semantics[@role='button' and text()='Continue']")).click();
 

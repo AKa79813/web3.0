@@ -34,7 +34,7 @@ public class NewUser {
 
     WebDriver driver;
     // The phone number used for login. Make sure this is a valid test number.
-    private final String TEST_PHONE_NUMBER = "6362285653";
+    private final String TEST_PHONE_NUMBER = "8885849489";
 
     // --- Remote Server Details (UPDATE THESE FOR YOUR ENVIRONMENT!) ---
     private static final String REMOTE_HOST = "172.30.90.131";

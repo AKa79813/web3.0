@@ -69,7 +69,8 @@ public class QuickPay {
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-extensions");
-        options.addArguments("--force-device-scale-factor=0.9");
+
+       options.addArguments("--force-device-scale-factor=0.9");
 
         // Initialize the ChromeDriver, passing the fully configured ChromeOptions
         driver = new ChromeDriver(options);
@@ -102,7 +103,7 @@ public class QuickPay {
         // Enter the Loan Number
         WebElement loanNumberInput = driver.findElement(By.xpath("//input[@type='text']"));
         loanNumberInput.click();
-        loanNumberInput.sendKeys("BLHYBRID8713");
+        loanNumberInput.sendKeys("RL1123000674");
 
         // Enter the Mobile Number
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
