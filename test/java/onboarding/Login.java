@@ -15,8 +15,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login {
-    WebDriver driver;
-
+    protected   WebDriver driver;
+// Use 'protected' so subclasses can access it
+    protected WebDriverWait wait;
     @Test
     void setup() throws InterruptedException {
         // Setup WebDriverManager to automatically download and configure ChromeDriver

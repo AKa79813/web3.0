@@ -57,7 +57,7 @@ public class quikpDB {
     private static final String DB_PASSWORD = "CC3#@aHxrscd"; // Use appropriate DB password
 
     private static final String PAYMENTS_TABLE_NAME = "[CustomLTFS].[dbo].[TB_ABCO_PAYMENTS]";
-    private static final String LOAN_NUMBER = "BLHYBRID8713"; // The loan number used in the UI
+    private static final String LOAN_NUMBER = "CL15417190124561"; // The loan number used in the UI
     private static final String TEST_MOBILE_NUMBER = "8056420372"; // The mobile number used in the UI
     private static final String TEST_PAYMENT_AMOUNT = "500"; // The payment amount used in the UI
 

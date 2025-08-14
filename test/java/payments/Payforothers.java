@@ -66,7 +66,7 @@ public class Payforothers {
         }
 
         // Using WebDriverWait for better synchronization
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Initialize here
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40)); // Initialize here
 
         WebElement phoneNumberField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
         phoneNumberField.click();
@@ -85,11 +85,11 @@ public class Payforothers {
         System.out.println(" user logged in successfully");
 
 
-        WebElement payment = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()='Payments']")));
+        WebElement payment = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()='Services']")));
         payment.click();
 
-        WebElement pforothers = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='container']/input")));
-        pforothers.click();
+        scrollAndClickElement(By.xpath("//flt-semantics[text()='Pay for Other Account']"));
+//flt-semantics[text()='Pay for Other Account']
 
         WebElement textbox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@aria-label='Enter LAN number']")));
 
@@ -224,7 +224,11 @@ public class Payforothers {
 
         // driver.quit();
 
-    }}
+    }
+
+    private void scrollAndClickElement(By xpath) {
+    }
+}
 
 
 

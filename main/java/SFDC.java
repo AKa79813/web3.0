@@ -17,7 +17,7 @@ public class SFDC {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         WebDriver driver = null;
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         driver = new ChromeDriver(options);
 
         String url = "https://ltfs--sit.sandbox.my.salesforce.com/"; // Or any other URL you want to test
@@ -27,13 +27,14 @@ public class SFDC {
         driver.findElement(By.xpath("//input[@id='password']")).sendKeys("7020068681Wa#");
         driver.findElement(By.xpath("//input[@id='Login']")).click();
 
-        Thread.sleep(6000);
+
 
         //  driver.switchTo().alert().accept();
         Thread.sleep(3000);
 
 
-        WebElement searcbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='button' and contains(@class, 'search-button')]")));
+        WebElement searcbox = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#input-957")));
+        searcbox.click();
          searcbox.sendKeys("17184977");
 
     }

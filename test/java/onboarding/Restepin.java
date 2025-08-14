@@ -88,7 +88,7 @@ public class Restepin {
         // Wait for a significant element on the page to indicate it's loaded
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
         mobileNumberInput.click();
-        mobileNumberInput.sendKeys("8668076641");
+        mobileNumberInput.sendKeys("6362285653");
 
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -181,7 +181,7 @@ public class Restepin {
      * @return The extracted OTP string, or null if not found.
      * @throws IOException If there's an issue reading the file.
      */
-    private String getOtpFromLocalLog(String localLogFilePath) throws IOException {
+    String getOtpFromLocalLog(String localLogFilePath) throws IOException {
         String otp = null;
         // Regex pattern to find "OTP is : " followed by one or more digits.
         // The parentheses create a capturing group for the digits.
@@ -215,7 +215,7 @@ public class Restepin {
      * @param localSavePath Local path to save the downloaded file.
      * @throws Exception If there's an error during SSH/SFTP connection or transfer.
      */
-    private void downloadLogFileFromRemoteServer(
+    void downloadLogFileFromRemoteServer(
             String host, int port, String username, String password, String remoteFilePath, String localSavePath) throws Exception {
 
         Session session = null;
