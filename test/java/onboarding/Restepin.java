@@ -88,7 +88,7 @@ public class Restepin {
         // Wait for a significant element on the page to indicate it's loaded
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
         mobileNumberInput.click();
-        mobileNumberInput.sendKeys("6362285653");
+        mobileNumberInput.sendKeys("9538188178");
 
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -159,11 +159,11 @@ public class Restepin {
 
         WebElement mpin1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='password' and @data-semantics-role='text-field']")));
         mpin1.click();;
-        mpin1.sendKeys("9999");
+        mpin1.sendKeys("5656");
 
         WebElement mpin2 =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@autocomplete='off' and @data-semantics-role='text-field']")));
         mpin2.click();
-        mpin2.sendKeys("9999");
+        mpin2.sendKeys("5656");
 
         driver.findElement(By.xpath("//flt-semantics[@role='button' and text()='Continue']")).click();
 

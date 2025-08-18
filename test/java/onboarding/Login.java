@@ -19,7 +19,7 @@ public class Login {
 // Use 'protected' so subclasses can access it
     protected WebDriverWait wait;
     @Test
-    void setup() throws InterruptedException {
+    public WebDriver setup() throws InterruptedException {
         // Setup WebDriverManager to automatically download and configure ChromeDriver
         WebDriverManager.chromedriver().setup();
 
@@ -70,7 +70,7 @@ public class Login {
 
         WebElement phoneNumberField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
         phoneNumberField.click();
-        phoneNumberField.sendKeys("9888484848");
+        phoneNumberField.sendKeys("9866537685");
         Thread.sleep(2000);
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -83,6 +83,7 @@ public class Login {
         driver.findElement(By.xpath("//input[@name='one-time-code']")).sendKeys("1111");
 
         System.out.println(" user logged in successfully");
+        return driver;
 
         //Keep this commented for now, but good practice to have for cleanup
          //driver.quit();
