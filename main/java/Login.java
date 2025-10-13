@@ -23,7 +23,7 @@ public class Login {
 
 
         try {
-            driver.get("https://uatd2cwbs.ltfinance.com/planet-web/"); // Replace with the actual URL
+            driver.get("https://uatd2cwbs.ltfinance.com"); // Replace with the actual URL
 
             // Use a simpler CSS selector to find the element by its type
             By simpleTelInputLocator = By.xpath("//input[@data-semantics-role='text-field' and @type='tel']");

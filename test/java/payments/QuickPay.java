@@ -80,7 +80,7 @@ public class QuickPay {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com");
 
         System.out.println("Chrome browser launched with notification handling preferences and maximized.");
 
@@ -103,12 +103,12 @@ public class QuickPay {
         // Enter the Loan Number
         WebElement loanNumberInput = driver.findElement(By.xpath("//input[@type='text']"));
         loanNumberInput.click();
-        loanNumberInput.sendKeys("H03879120123074059");
+        loanNumberInput.sendKeys("F0234K610802230656");
 
         // Enter the Mobile Number
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
         mobileNumberInput.click();
-        mobileNumberInput.sendKeys("9346522648");
+        mobileNumberInput.sendKeys("6362285653");
 
         // Click the "Proceed" button
         WebElement proceedButton = driver.findElement(By.xpath("//flt-semantics[text()=\"Proceed\"]"));

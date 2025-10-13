@@ -1,75 +1,85 @@
 package Myaccount;
 
-import onboarding.Login; // Assuming onboarding.Login exists and handles WebDriver setup
+import onboarding.Login;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions; // Required for Actions class
+import org.openqa.selenium.Keys; // Required for Keys.PAGE_DOWN
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod; // For TestNG cleanup
-import org.testng.annotations.BeforeMethod; // For TestNG setup
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 public class ReferFriend {
-    // Declare driver at the class level so it's accessible to all methods
+    // Declare driver, wait, and actions at the class level for accessibility
     private WebDriver driver;
     private WebDriverWait wait;
+    private Actions actions;
 
-    // It's good practice to encapsulate common setup steps, especially WebDriver initialization.
-    // If Login.setup() returns WebDriver, we can use that.
-    // Otherwise, you'd initialize WebDriver directly here.
     @BeforeMethod
     public void setUpBrowser() throws InterruptedException {
-        // Option 1: If Login.setup() creates and returns a WebDriver instance
-        // Assuming Login.setup() returns WebDriver. If not, modify Login.setup()
-        // to return WebDriver or initialize WebDriver directly here.
         Login login = new Login();
-        driver = login.setup(); // Assuming Login.setup() initializes and returns WebDriver
-
-        // Option 2: Initialize WebDriver directly here if Login.setup() doesn't return it
-        // System.setProperty("webdriver.chrome.driver", "path/to/chromedriver.exe"); // Uncomment and set your path
-        // driver = new ChromeDriver();
-
+        driver = login.setup(); // ASSUMPTION: Login.setup() returns an initialized WebDriver instance
+        driver.manage().window().maximize(); // Maximize browser window for better viewability
         wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Initialize WebDriverWait
-
+        actions = new Actions(driver); // Initialize Actions object
+        System.out.println("Browser setup and login complete.");
     }
 
     @Test
-    void clickReferAFriend() throws InterruptedException { // Renamed method for clarity
+    void scrollAndClickReferAFriend() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        // Wait for the profile button to be clickable and click it
-        // Note: The XPath for profile was missing "//" at the beginning if it's an absolute path
-        // If 'flt-semantics' is the root, use just the tag. If it's anywhere in the DOM, use //.
-        // Assuming it's anywhere in the DOM for robustness.
-        WebElement profile = wait.until(ExpectedConditions.elementToBeClickable(
+        // 1. Click the profile button to open the sidebar.
+        // Using a more robust XPath based on attributes like role, tabindex, aria-expanded.
+        WebElement profileButton = wait.until(ExpectedConditions.elementToBeClickable(
                 By.xpath("//flt-semantics[contains(@style, 'transform: matrix(1, 0, 0, 1, 2082.44, 55);')]")
+                // If the above doesn't work consistently, and the matrix is stable for this element,
+                // you could use: By.xpath("//flt-semantics[contains(@style, 'transform: matrix(1, 0, 0, 1, 2082.44, 55);')]")
         ));
-        profile.click();
-        System.out.println("Clicked on profile button.");
+        profileButton.click();
+        System.out.println("Clicked on profile button to open sidebar.");
 
-        // Locate the "Refer A Friend" element
-        WebElement referAFriendElement = wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.xpath("//flt-semantics[contains(@aria-label, 'Refer A Friend') and @role='menuitem']")
+        // Add a sufficient wait for the sidebar to fully appear and its content to load.
+        Thread.sleep(2500); // Increased sleep for robust loading
+
+        // 2. Identify the scrollable sidebar container using the provided XPath.
+        // We're assuming this element (despite overflow:visible) is what Flutter uses for scrolling.
+        WebElement sidebarMainContainer = wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//flt-semantics[@role='menuitem']")
         ));
+        System.out.println("Located the main sidebar container using its style attribute.");
 
-        // Scroll the element into view
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", referAFriendElement);
-        System.out.println("Scrolled element into view.");
+        // 3. Simulate mouse-over and PAGE_DOWN scroll on the sidebar container.
+        actions.moveToElement(sidebarMainContainer).perform(); // Move mouse cursor to the sidebar
+        System.out.println("Moved mouse cursor to sidebar container for scrolling.");
 
-        // Optional: Small wait after scrolling if there are animations or rendering delays
-        Thread.sleep(1000);
+        // Press PAGE_DOWN multiple times to scroll down the sidebar.
+        // Adjust the loop count (e.g., 2 or 3 times) based on how far down "Refer A Friend" is located.
+        for (int i = 0; i < 4; i++) { // Start with 2 PageDown presses, adjust if needed
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+            Thread.sleep(1000); // Short pause for animation/rendering
+            System.out.println("Simulated Page UP scroll on sidebar (iteration " + (i + 1) + ").");
+        }
 
-        // Click the element using JavaScript Executor
-        wait.until(ExpectedConditions.elementToBeClickable(referAFriendElement));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", referAFriendElement);
+        // 4. Locate the "Refer A Friend" element after scrolling.
+        // It should now be visible and clickable within the scrolled sidebar.
+        WebElement referAFriendElement = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//flt-semantics[contains(@aria-label, 'Refer A Friend') and @role='menuitem')]")
+        ));
+        System.out.println("Located 'Refer A Friend' element after scrolling.");
+
+        // 5. Click the "Refer A Friend" element using JavaScript Executor for reliability.
+        js.executeScript("arguments[0].click();", referAFriendElement);
         System.out.println("'Refer A Friend' element clicked via JavaScript.");
 
-        // Add any assertions or further actions here to verify the click effect
-        // For example, verify navigation to the referral page, or a success message
-        // wait.until(ExpectedConditions.urlContains("referral"));
+        // Add any assertions or further actions here to verify the click effect.
+        Thread.sleep(3000); // For observation
     }
 
 //    @AfterMethod
@@ -77,5 +87,6 @@ public class ReferFriend {
 //        if (driver != null) {
 //            driver.quit(); // Close the browser
 //            System.out.println("Browser closed.");
-        }
-
+//        }
+//    }
+}

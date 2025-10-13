@@ -59,7 +59,7 @@ public class Partpayment {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Initialize WebDriverWait here
 
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com");
 
         System.out.println("Chrome browser launched with notification handling preferences and maximized.");
 

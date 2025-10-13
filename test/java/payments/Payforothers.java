@@ -55,7 +55,7 @@ public class Payforothers {
         // No need for driver.manage().window().maximize() if using --start-maximized in options
 
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com");
 
         System.out.println("Chrome browser launched with notification handling preferences.");
 
@@ -93,7 +93,7 @@ public class Payforothers {
 
         WebElement textbox = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@aria-label='Enter LAN number']")));
 
-        textbox.sendKeys("BLHYBRID8713");
+        textbox.sendKeys("L07258200142");
         // Enter the Mobile Number
 
         WebElement proceed = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Proceed']")));

@@ -2,6 +2,7 @@ package onboarding;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -42,7 +43,7 @@ public class Login {
 
         // --- This is the key for maximizing ---
         options.addArguments("--start-maximized"); // Add this argument to options
-       // options.addArguments("--window-size=412,915");
+        // options.addArguments("--window-size=412,915");
 
         options.addArguments("--force-device-scale-factor=0.9");
 
@@ -55,7 +56,7 @@ public class Login {
         // No need for driver.manage().window().maximize() if using --start-maximized in options
 
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com"); //
 
         System.out.println("Chrome browser launched with notification handling preferences.");
 
@@ -70,7 +71,7 @@ public class Login {
 
         WebElement phoneNumberField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
         phoneNumberField.click();
-        phoneNumberField.sendKeys("9866537685");
+        phoneNumberField.sendKeys("7474464646");
         Thread.sleep(2000);
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -85,8 +86,26 @@ public class Login {
         System.out.println(" user logged in successfully");
         return driver;
 
-        //Keep this commented for now, but good practice to have for cleanup
-         //driver.quit();
-        //System.out.println("Browser closed.");
+
+//        String scrollableXPath = "//flt-semantics[@role='group' and contains(@style, 'overflow-x: scroll')]";
+//        WebElement scrollableElement = driver.findElement(By.xpath(scrollableXPath));
+//
+//        // 5. Scroll the element using JavascriptExecutor
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//
+//        // Scroll to the right
+//        js.executeScript("arguments[0].scrollLeft += 1000;", scrollableElement);
+//        // The value '1000' is the number of pixels to scroll. Adjust as needed.
+//
+//        Thread.sleep(2000); // Wait to observe the scroll action
+//
+//        // Scroll to the left
+//        js.executeScript("arguments[0].scrollLeft -= 500;", scrollableElement);
+//
+//        //Keep this commented for now, but good practice to have for cleanup
+//         //driver.quit();
+//        //System.out.println("Browser closed.")
+//        return driver;
+
     }
 }

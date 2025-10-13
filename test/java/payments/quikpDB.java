@@ -57,8 +57,8 @@ public class quikpDB {
     private static final String DB_PASSWORD = "CC3#@aHxrscd"; // Use appropriate DB password
 
     private static final String PAYMENTS_TABLE_NAME = "[CustomLTFS].[dbo].[TB_ABCO_PAYMENTS]";
-    private static final String LOAN_NUMBER = "CL15417190124561"; // The loan number used in the UI
-    private static final String TEST_MOBILE_NUMBER = "8056420372"; // The mobile number used in the UI
+    private static final String LOAN_NUMBER = "BLHYBRID8713"; // The loan number used in the UI
+    private static final String TEST_MOBILE_NUMBER = "9346522648"; // The mobile number used in the UI
     private static final String TEST_PAYMENT_AMOUNT = "500"; // The payment amount used in the UI
 
 
@@ -81,7 +81,7 @@ public class quikpDB {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50)); // Increased timeout for initial page load
 
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com");
         System.out.println("Chrome browser launched with notification handling preferences and maximized.");
 
         try {
@@ -464,7 +464,7 @@ public class quikpDB {
                 // Example Assertions:
                 Assert.assertEquals(regMobileNum, TEST_MOBILE_NUMBER, "REG_MOBILE_NUM mismatch");
                 Assert.assertEquals(paymentAmt, Double.parseDouble(TEST_PAYMENT_AMOUNT), "PAYMENT_AMT mismatch");
-                Assert.assertEquals(paymentStatus, "SUCCESS", "Payment Status should be SUCCESS"); // Example
+                Assert.assertEquals(paymentStatus, "PG_SUC", "Payment Status should be SUCCESS"); // Example
                 Assert.assertNotNull(paymentId, "PAYMENT_ID should not be null");
                 Assert.assertFalse(paymentId.isEmpty(), "PAYMENT_ID should not be empty");
                 // Assert.assertEquals(channelId, "WEB", "CHANNEL_ID mismatch"); // Adjust as per your expected value

@@ -57,7 +57,7 @@ public class preloginfooter2 {
 
         try {
             // Navigate to the initial URL
-            driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.get("https://uatd2cwbs.ltfinance.com");
             System.out.println("Chrome browser launched with notification handling preferences.");
 
 
@@ -76,7 +76,7 @@ public class preloginfooter2 {
 //
 //            Thread.sleep(2000);
 
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
 
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-24\"]"), "flt-semantic-node-24");
             System.out.println("Navigated personal loan page.");
@@ -84,7 +84,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "personal_loan_page.png"); // Screenshot after navigation and click
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             //takeScreenshot(driver, "homepage_before_node_25_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-25\"]"), "flt-semantic-node-25");
             Thread.sleep(4000);
@@ -92,7 +92,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "two_wheeler_loan_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_26_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-26\"]"), "flt-semantic-node-26");
             System.out.println("Navigated Business loan page.");
@@ -100,7 +100,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "business_loan_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
            // takeScreenshot(driver, "homepage_before_node_27_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-27\"]"), "flt-semantic-node-27");
             System.out.println("Navigated LAP loan page.");
@@ -108,7 +108,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "lap_loan_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
            // takeScreenshot(driver, "homepage_before_node_28_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-28\"]"), "flt-semantic-node-28");
             System.out.println("Navigated Rural loan page.");
@@ -116,7 +116,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "rural_loan_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
            // takeScreenshot(driver, "homepage_before_node_29_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-29\"]"), "flt-semantic-node-29");
             System.out.println("Navigated Tractor loan page.");
@@ -124,7 +124,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "tractor_loan_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
            // takeScreenshot(driver, "homepage_before_node_30_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-30\"]"), "flt-semantic-node-30");
             System.out.println("Navigated WRF loan page.");
@@ -132,7 +132,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "wrf_loan_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_33_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-33\"]"), "flt-semantic-node-33");
             System.out.println("Navigated locate us page.");
@@ -140,7 +140,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "locate_us_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_34_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-34\"]"), "flt-semantic-node-34");
             System.out.println("Navigated contact us page.");
@@ -148,7 +148,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "contact_us_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_35_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-35\"]"), "flt-semantic-node-35");
             System.out.println("Navigated About us page.");
@@ -156,7 +156,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "about_us_page.png");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_46_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-46\"]"), "flt-semantic-node-46");
             System.out.println("Navigated L&T page.");
@@ -164,7 +164,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "l_and_t_page.png");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_48_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-48\"]"), "flt-semantic-node-48");
             System.out.println("Navigated L&T business page.");
@@ -172,7 +172,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "l_and_t_business_page.png");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
          //   takeScreenshot(driver, "homepage_before_node_49_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-49\"]"), "flt-semantic-node-49");
             System.out.println("Navigated consultant page.");
@@ -180,7 +180,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "consultant_page.png");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_50_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-50\"]"), "flt-semantic-node-50");
             System.out.println("Navigated merged page.");
@@ -188,7 +188,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "merged_page.png");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
           //  takeScreenshot(driver, "homepage_before_node_55_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-55\"]"), "flt-semantic-node-55");
             System.out.println("Navigated Disclaimer page.");
@@ -196,7 +196,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "disclaimer_page.png");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             //takeScreenshot(driver, "homepage_before_node_57_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-57\"]"), "flt-semantic-node-57");
             System.out.println("Navigated privacy policy page.");
@@ -204,7 +204,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "privacy_policy_page.png");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             //takeScreenshot(driver, "homepage_before_node_59_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-59\"]"), "flt-semantic-node-59");
             System.out.println("Navigated cutomer advisory page.");
@@ -212,7 +212,7 @@ public class preloginfooter2 {
             takeScreenshot(driver, "customer_advisory_page.png");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             //takeScreenshot(driver, "homepage_before_node_61_click.png");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-61\"]"), "flt-semantic-node-61");
             System.out.println("Navigated Greivance redressel page.");

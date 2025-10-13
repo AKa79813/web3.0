@@ -58,7 +58,7 @@ public class Addressupdate {
         // No need for driver.manage().window().maximize() if using --start-maximized in options
 
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com");
 
         System.out.println("Chrome browser launched with notification handling preferences.");
 
@@ -102,7 +102,7 @@ public class Addressupdate {
         WebElement con = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and @tabindex='0' and text()='Continue']")));
         con.click();
 
-        WebElement pen =   wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[contains(@style, 'transform: matrix(1, 0, 0, 1, 1211, 498.5);')]")));
+        WebElement pen =   wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[contains(@style, 'transform: matrix(1, 0, 0, 1, 1488.22, 498.5);')]")));
         pen.click();
 Thread.sleep(3000);
         WebElement conn =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and @tabindex='0' and text()='Continue']")));
@@ -129,22 +129,14 @@ Thread.sleep(3000);
             String filePath = new File("C:\\Users\\ven06482\\OneDrive\\Pictures\\Screenshots\\Screenshot 2025-03-17 111651.png").getAbsolutePath();
             System.out.println("Attempting to upload file from: " + filePath);
 
+            // Find the hidden input field and send the file path directly
+            // You MUST find the correct locator for the input[type='file'] element
+            WebElement fileInput = driver.findElement(By.xpath("//input[@type='text' and @data-semantics-role='text-field' and contains(@aria-label, 'Upload Address Proof')]")); // THIS IS A PLACEHOLDER. FIND THE CORRECT XPATH.
+            fileInput.sendKeys(filePath);
 
-            WebElement uploadElement = driver.findElement(By.xpath("//flt-semantics[contains(@style, 'transform: matrix(1, 0, 0, 1, 360, 28);')]"));
-
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("arguments[0].style.display = 'block';", uploadElement);
-            js.executeScript("arguments[0].style.visibility = 'visible';", uploadElement);
-            js.executeScript("arguments[0].style.height = '1px';", uploadElement);
-            js.executeScript("arguments[0].style.width = '1px';", uploadElement);
-            js.executeScript("arguments[0].style.opacity = '1';", uploadElement);
-            js.executeScript("arguments[0].style.pointerEvents = 'auto';", uploadElement);
-
-            uploadElement.sendKeys(filePath);
             System.out.println("File path sent to the input field.");
-
-            // Add a small delay to observe the outcome or wait for processing
-            Thread.sleep(3000);
+            wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath("//div[contains(text(), 'Screenshot 2025-03-17')]"), "Screenshot 2025-03-17"));
+            System.out.println("File uploaded successfully.");
 
         } catch (Exception e) {
             e.printStackTrace();

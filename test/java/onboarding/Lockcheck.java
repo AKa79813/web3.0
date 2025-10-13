@@ -69,7 +69,7 @@ public class Lockcheck extends Restepin{
         // No need for driver.manage().window().maximize() if using --start-maximized in options
 
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com/");
 
         System.out.println("Chrome browser launched with notification handling preferences.");
 
@@ -84,7 +84,7 @@ public class Lockcheck extends Restepin{
 
         WebElement phoneNumberField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
         phoneNumberField.click();
-        phoneNumberField.sendKeys("7020068681");
+        phoneNumberField.sendKeys("6362285653");
         Thread.sleep(2000);
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -96,7 +96,7 @@ public class Lockcheck extends Restepin{
 
         // Wait for the one-time code field to be visible and interactable
         WebElement oneTimeCodeField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='one-time-code']")));
-        oneTimeCodeField.sendKeys("8888");
+        oneTimeCodeField.sendKeys("5678");
 
         for (int i = 0; i < 3; i++) {
             try {
@@ -112,7 +112,7 @@ public class Lockcheck extends Restepin{
                  WebElement verifyButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@spellcheck='false' and @autocorrect='off']")));
                  verifyButton.click();
 
-                verifyButton.sendKeys("8888");
+                verifyButton.sendKeys("5678");
 
                 System.out.println("Attempt " + (i + 1) + ": Entered '1111' into one-time code field.");
 
@@ -192,11 +192,11 @@ public class Lockcheck extends Restepin{
 
         WebElement mpin1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='password' and @data-semantics-role='text-field']")));
         mpin1.click();;
-        mpin1.sendKeys("7878");
+        mpin1.sendKeys("7777");
 
         WebElement mpin2 =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@autocomplete='off' and @data-semantics-role='text-field']")));
         mpin2.click();
-        mpin2.sendKeys("7878");
+        mpin2.sendKeys("7777");
 
         driver.findElement(By.xpath("//flt-semantics[@role='button' and text()='Continue']")).click();
 

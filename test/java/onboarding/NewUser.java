@@ -34,7 +34,7 @@ public class NewUser {
 
     WebDriver driver;
     // The phone number used for login. Make sure this is a valid test number.
-    private final String TEST_PHONE_NUMBER = "9888484848";
+    private final String TEST_PHONE_NUMBER = "7474464640";
 
     // --- Remote Server Details (UPDATE THESE FOR YOUR ENVIRONMENT!) ---
     private static final String REMOTE_HOST = "172.30.90.131";
@@ -73,7 +73,7 @@ public class NewUser {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // Navigate to the application URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com/");
         System.out.println("Chrome browser launched and navigated to login page.");
 
         // Using WebDriverWait for better synchronization, waiting up to 20 seconds for elements

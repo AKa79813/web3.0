@@ -51,7 +51,7 @@ public class Prefooter {
         wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 
         // Navigate to the initial URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com/");
         System.out.println("Chrome browser launched with notification handling preferences.");
 
         try {
@@ -65,14 +65,14 @@ public class Prefooter {
             System.out.println("Navigated to the home loan page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com/");
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-24\"]"), "flt-semantic-node--24");
 
             System.out.println("Navigated personal loan page.");
 
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-25\"]"), "flt-semantic-node-25");
@@ -80,7 +80,7 @@ public class Prefooter {
             System.out.println("Navigated Two wheeler loan page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-26\"]"), "flt-semantic-node-26");
@@ -88,7 +88,7 @@ public class Prefooter {
             System.out.println("Navigated Business loan page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-27\"]"), "flt-semantic-node-27");
@@ -96,7 +96,7 @@ public class Prefooter {
             System.out.println("Navigated LAP loan page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-28\"]"), "flt-semantic-node-28");
@@ -104,7 +104,7 @@ public class Prefooter {
             System.out.println("Navigated Rural loan page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-29\"]"), "flt-semantic-node-29");
@@ -112,7 +112,7 @@ public class Prefooter {
             System.out.println("Navigated Tractor loan page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-30\"]"), "flt-semantic-node-30");
@@ -120,7 +120,7 @@ public class Prefooter {
             System.out.println("Navigated WRF loan page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-33\"]"), "flt-semantic-node-33");
@@ -128,7 +128,7 @@ public class Prefooter {
             System.out.println("Navigated locate us  page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-34\"]"), "flt-semantic-node-34");
@@ -136,7 +136,7 @@ public class Prefooter {
             System.out.println("Navigated contact us  page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-35\"]"), "flt-semantic-node-35");
@@ -144,7 +144,7 @@ public class Prefooter {
             System.out.println("Navigated About  us page.");
 
             Thread.sleep(2000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-46\"]"), "flt-semantic-node-46");
@@ -152,7 +152,7 @@ public class Prefooter {
             System.out.println("Navigated L&T  page.");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-48\"]"), "flt-semantic-node-48");
@@ -161,7 +161,7 @@ public class Prefooter {
 
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-49\"]"), "flt-semantic-node-49");
@@ -170,7 +170,7 @@ public class Prefooter {
 
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-50\"]"), "flt-semantic-node-50");
@@ -178,7 +178,7 @@ public class Prefooter {
             System.out.println("Navigated merged page.");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-55\"]"), "flt-semantic-node-55");
@@ -186,7 +186,7 @@ public class Prefooter {
             System.out.println("Navigated Disclaimer page.");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-57\"]"), "flt-semantic-node-57");
@@ -194,7 +194,7 @@ public class Prefooter {
             System.out.println("Navigated privacy policy page.");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-59\"]"), "flt-semantic-node-59");
@@ -202,7 +202,7 @@ public class Prefooter {
             System.out.println("Navigated cutomer advisory page.");
 
             Thread.sleep(1000);
-            driver.navigate().to("https://uatd2cwbs.ltfinance.com/planet-web/");
+            driver.navigate().to("https://uatd2cwbs.ltfinance.com");
             // Now, use the scrollAndClickElement method for "flt-semantic-node-5"
             // This will ensure it's scrolled into view and then clicked after navigating back
             scrollAndClickElement(By.xpath("//*[@id=\"flt-semantic-node-61\"]"), "flt-semantic-node-61");
@@ -214,11 +214,11 @@ public class Prefooter {
         } catch (Exception e) {
             System.err.println("An error occurred during navigation or element interaction: " + e.getMessage());
             e.printStackTrace();
-        } finally {
-            if (driver != null) {
-                driver.quit();
-                System.out.println("Browser closed.");
-            }
+//        } finally {
+//            if (driver != null) {
+//          //      driver.quit();
+//                System.out.println("Browser closed.");
+//            }
         }
     }
 

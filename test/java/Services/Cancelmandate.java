@@ -56,7 +56,7 @@ public class Cancelmandate {
         // No need for driver.manage().window().maximize() if using --start-maximized in options
 
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com");
 
         System.out.println("Chrome browser launched with notification handling preferences.");
 

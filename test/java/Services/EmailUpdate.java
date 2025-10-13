@@ -79,7 +79,7 @@ public class EmailUpdate {
     @Test
     void updateEmailTest() throws InterruptedException { // Renamed test method for clarity
         // Navigate to URL
-        driver.get("https://uatd2cwbs.ltfinance.com/planet-web/");
+        driver.get("https://uatd2cwbs.ltfinance.com");
         System.out.println("Navigated to URL: " + driver.getCurrentUrl());
 
         // Wait for page to load or specific element to be present
