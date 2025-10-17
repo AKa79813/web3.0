@@ -34,7 +34,7 @@ public class Restepin {
     private static final String REMOTE_HOST = "172.30.90.131";
     private static final int REMOTE_PORT = 22;
     private static final String REMOTE_USERNAME = "ltfadmin.d2c";
-    private static final String REMOTE_PASSWORD = "Ltfs@AUG2025D2C##";
+    private static final String REMOTE_PASSWORD = "Ltfs@SEP2025D2C##";
     // Path to the log file ON THE REMOTE SERVER
     private static final String REMOTE_LOG_PATH = "/home/ltfadmin.d2c/Logs/planet-user/log4j.log";
     // Local path where the log file will be temporarily saved on the machine running this test
@@ -88,7 +88,7 @@ public class Restepin {
         // Wait for a significant element on the page to indicate it's loaded
         WebElement mobileNumberInput = driver.findElement(By.xpath("//input[contains(@aria-label, \"+91\")]"));
         mobileNumberInput.click();
-        mobileNumberInput.sendKeys("9538188178");
+        mobileNumberInput.sendKeys("6362285653");
 
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -159,11 +159,11 @@ public class Restepin {
 
         WebElement mpin1 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='password' and @data-semantics-role='text-field']")));
         mpin1.click();;
-        mpin1.sendKeys("5656");
+        mpin1.sendKeys("6789");
 
         WebElement mpin2 =  wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@autocomplete='off' and @data-semantics-role='text-field']")));
         mpin2.click();
-        mpin2.sendKeys("5656");
+        mpin2.sendKeys("6789");
 
         driver.findElement(By.xpath("//flt-semantics[@role='button' and text()='Continue']")).click();
 

@@ -51,7 +51,7 @@ public class Login {
         driver = new ChromeDriver(options); // <--- Corrected line: pass 'options' here
 
         // Now you can set implicit wait
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         // No need for driver.manage().window().maximize() if using --start-maximized in options
 
@@ -71,7 +71,7 @@ public class Login {
 
         WebElement phoneNumberField = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@data-semantics-role='text-field' and @type='tel']")));
         phoneNumberField.click();
-        phoneNumberField.sendKeys("7474464646");
+        phoneNumberField.sendKeys("7474467640");
         Thread.sleep(2000);
 
         WebElement continueButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Continue']")));
@@ -81,7 +81,7 @@ public class Login {
         WebElement passwordField = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("input[type=\"password\"]")));
         passwordField.click();
         Thread.sleep(1000); // Consider replacing Thread.sleep with WebDriverWait
-        driver.findElement(By.xpath("//input[@name='one-time-code']")).sendKeys("1111");
+        driver.findElement(By.xpath("//input[@name='one-time-code']")).sendKeys("1234");
 
         System.out.println(" user logged in successfully");
         return driver;

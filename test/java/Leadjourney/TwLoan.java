@@ -12,158 +12,100 @@ import java.time.Duration;
 
 public class TwLoan extends Login {
     private WebDriver driver;
-    private static WebDriverWait wait;
+    private WebDriverWait wait;
     private Actions actions;
+    private JavascriptExecutor js;
+
+    // ******************************************************
+    // ✅ 1. DEFINE LOCATORS ONCE (Best practice for Page Objects)
+    // ******************************************************
+    private final By twoWheelerLoanButton = By.xpath("//flt-semantics[@role='button' and text()='Two Wheeler Loan']");
+    private final By twLoanText = By.xpath("//flt-semantics[text()='Two Wheeler Loan']");
+    private final By applyNowText = By.xpath("//flt-semantics[text()='Apply Now']");
+    private final By applyNowButton = By.xpath("//flt-semantics[@role='button' and text()='Apply Now']");
+    private final By firstNameInput = By.xpath("//input[@aria-label='Enter First Name']");
+    private final By lastNameInput = By.xpath("//input[@aria-label='Enter Last Name']");
+    private final By emailInput = By.xpath("//input[@aria-label='Enter Email Address']");
+    private final By panInput = By.xpath("//input[@aria-label='Enter PAN']");
+    private final By pincodeInput = By.xpath("//input[@aria-label='Enter Current Residence PIN Code']");
+    private final By yesButton = By.xpath("//flt-semantics[text()='Yes']");
+    private final By selectBikeBrand = By.xpath("//flt-semantics[text()='Select Bike Brand']");
+    private final By ducatiBrand = By.xpath("//flt-semantics[text()='Ducati']");
+    private final By in30DaysOption = By.xpath("//flt-semantics[text()='In 30 Days']");
+    private final By checkbox = By.xpath("//flt-semantics[@role='checkbox' and @aria-checked='false']");
+
 
     @BeforeMethod
     public void setUpBrowser() throws InterruptedException {
         Login login = new Login();
-        driver = login.setup(); // ASSUMPTION: Login.setup() returns an initialized WebDriver instance
-        driver.manage().window().maximize(); // Maximize browser window for better viewability
-        wait = new WebDriverWait(driver, Duration.ofSeconds(30)); // Initialize WebDriverWait
-        actions = new Actions(driver); // Initialize Actions object
+        driver = login.setup();
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        actions = new Actions(driver);
+        js = (JavascriptExecutor) driver; // Initialize JavascriptExecutor
         System.out.println("Browser setup and login complete.");
     }
 
-@Test
-    void LeadJourneys() throws InterruptedException{
-
-    String twoWheelerLoanXPath = "//flt-semantics[@role='button' and text()='Two Wheeler Loan']";
-
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-    try {
-        // 1. Scroll the entire page down to ensure the element is in the viewport.
-        // Adjust the value (e.g., 500) if the element is further down.
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 100)");
-        System.out.println("Scrolled down 500 pixels.");
-
-        // 2. Wait for the element to be clickable after scrolling.
-        WebElement twoWheelerButton = wait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath(twoWheelerLoanXPath))
-        );
-
-        // 3. Click the element.
-        twoWheelerButton.click();
-        System.out.println("Successfully clicked 'Two Wheeler Loan' button.");
-
-    } catch (Exception e) {
-        System.err.println("Failed to scroll or click the 'Two Wheeler Loan' button.");
-        e.printStackTrace();
+    // ******************************************************
+    // ✅ 2. HELPER METHODS TO REDUCE REDUNDANCY IN @Test
+    // ******************************************************
+    private void clickElement(By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
-    WebElement TW = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[text()='Two Wheeler Loan']")));
-    TW.click();
+    private void typeText(By locator, String text) {
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        element.clear(); // Good practice to clear first
+        element.sendKeys(text);
+    }
 
-    WebElement Apply = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[text()='Apply Now']")));
-    Apply.click();;
-
-    WebElement Apply2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[@role='button' and text()='Apply Now']")));
-    Apply2.click();
-
-
-    WebElement Firstname = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@aria-label='Enter First Name']")));
-    Firstname.sendKeys("Arun");
-
-
-    WebElement Lastname = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@aria-label='Enter Last Name']")));
-    Lastname.sendKeys("Kumar");
- WebElement DOB = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[contains(@style, 'matrix(1, 0, 0, 1, 360, 4)')]")));
-  DOB.click();
-  WebElement Year = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[contains(text(), 'Select year')]")));
-  Year.click();
-
-
-//    WebElement year2 = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("flt-semantics[style*='transform: matrix(1, 0, 0, 1, 710, 357)']")));
-//    year2.click();
-
-    WebElement year3 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[normalize-space(.)='2014']")));
-    year3.click();
-    System.out.println("clicked on 2014 year ");
-
-    WebElement year4 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[@role='button' and contains(., 'Select year')]")));
-    year4.click();
-    System.out.println("clicked on year selection year from 2014");
-
-    WebElement year5 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[@role='button' and text()='2008']")));
-    year5.click();
-    System.out.println("clicked on 2008 year ");
-
-    WebElement year6 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[@role='button' and contains(., 'Select year')]")));
-    year6.click();
-    System.out.println("clicked on year selection year from 2008 ");
-
-    WebElement year7 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[@role='button' and text()='2002']")));
-    year7.click();
-    System.out.println("clicked on 2002 year ");
-
-    WebElement Date = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[@role='button' and contains(., 'October 13, 2002')]")));
-    Date.click();
-    System.out.println("entered date  ");
-
-
-    WebElement OK  = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[@role='button' and text()='OK']")));
-    OK.click();
-
-
-    WebElement Email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@aria-label='Enter Email Address']")));
-    Email.sendKeys("gmail@12.com");
-
-    WebElement Pan = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@aria-label='Enter PAN']")));
-    Pan.sendKeys("CKKPN8888R");
-
-    WebElement Pincode = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@aria-label='Enter Current Residence PIN Code']")));
-    Pincode.sendKeys("562106");
-
-    WebElement Yes  = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//flt-semantics[text()='Yes']")));
-    Yes.click();
-
-    WebElement Bike  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()='Select Bike Brand']")));
-    Bike.click();
-
-
-    WebElement Brand  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()='Ducati']")));
-    Brand.click();
-
-    WebElement Days  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//flt-semantics[text()='In 30 Days']")));
-    Days.click();
-
-    WebElement Check  = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(" //flt-semantics[@role='checkbox' and @aria-checked='false']")));
-    Check.click();
-
-    String submitButtonXPath = "//flt-semantics[@role='button' and text()='Submit']";
-
-    // Initialize WebDriverWait (if not already managed by the calling class)
-    JavascriptExecutor js = (JavascriptExecutor) driver;
-
-    try {
-        // 1. Scroll the entire page down.
-        // Adjust the value (e.g., 500) based on how far down the "Submit" button is.
-        // Using a large value ensures it's brought into the viewport.
-        js.executeScript("window.scrollBy(0, 500)");
-        System.out.println("Scrolled down to ensure 'Submit' button visibility.");
-
-        // 2. Wait for the Submit button to be visible and clickable.
-        WebElement submitButton = wait.until(
-                ExpectedConditions.elementToBeClickable(By.xpath(submitButtonXPath))
-        );
-
-        // 3. Click the element.
-        // Since it's an flt-semantics element, an additional JavaScript click can sometimes be more reliable.
-        submitButton.click();
-        // OR use JavaScript click if the standard click fails:
-        // js.executeScript("arguments[0].click();", submitButton);
-
-        System.out.println("Successfully clicked the 'Submit' button.");
-
-    } catch (Exception e) {
-        System.err.println("Failed to scroll or click the 'Submit' button.");
-        e.printStackTrace();
+    private void clickVisibleElement(By locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
     }
 
 
+    // ******************************************************
+    // 3. CLEANED @Test METHOD
+    // ******************************************************
+    @Test
+    public void LeadJourneys() throws InterruptedException{
 
-}
+        try {
+            js.executeScript("window.scrollBy(0, 100)");
+            System.out.println("Scrolled down 100 pixels.");
 
+            clickElement(twoWheelerLoanButton);
+            System.out.println("Successfully clicked 'Two Wheeler Loan' button.");
+
+        } catch (Exception e) {
+            System.err.println("Failed to scroll or click the 'Two Wheeler Loan' button.");
+            e.printStackTrace();
+        }
+
+        // --- Form Filling Steps ---
+        clickVisibleElement(twLoanText);
+        clickVisibleElement(applyNowText);
+        clickElement(applyNowButton);
+
+        typeText(firstNameInput, "Arun");
+        typeText(lastNameInput, "Kumar");
+
+        // ******************************************************
+        // CALL EXTERNAL UTILITY CLASS
+        // ******************************************************
+        DatePickerUtils dateActions = new DatePickerUtils(driver, Duration.ofSeconds(15));
+        dateActions.selectDateOfBirth();
+        System.out.println("Date selection completed via DatePickerUtils.");
+
+        // Continue filling the form
+        typeText(emailInput, "gmail@12.com");
+        typeText(panInput, "CKKPN8888R");
+        typeText(pincodeInput, "562106");
+
+        clickVisibleElement(yesButton);
+        clickElement(selectBikeBrand);
+        clickElement(ducatiBrand);
+        clickElement(in30DaysOption);
+        clickElement(checkbox);
+    }
 }
