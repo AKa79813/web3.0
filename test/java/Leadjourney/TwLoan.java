@@ -107,5 +107,9 @@ public class TwLoan extends Login {
         clickElement(ducatiBrand);
         clickElement(in30DaysOption);
         clickElement(checkbox);
+
+
+
+
     }
 }
